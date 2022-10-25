@@ -4,8 +4,6 @@ pipeline {
         pollSCM('* * * * *')
     }
     stages {
-        //implicit checkout stage
-        }
         stage('Build') {
             steps {
                 // Run Maven on a Unix agent.
@@ -14,13 +12,14 @@ pipeline {
                 // To run Maven on a Windows agent, use
                 // bat "mvn -Dmaven.test.failure.ignore=true clean package"
             }
-
-            post {
-                always {
-                    junit '**/target/surefire-reports/TEST-*.xml'
-                    archiveArtifacts 'target/*.jar'
-                }
-            }
         }
     }
+
+    post {
+         always {
+             junit '**/target/surefire-reports/TEST-*.xml'
+             archiveArtifacts 'target/*.jar'
+         }
+    }
 }
+
