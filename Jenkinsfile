@@ -15,7 +15,6 @@ pipeline {
         }
     }
 
-<<<<<<< HEAD
     post {
          always {
              junit '**/target/surefire-reports/TEST-*.xml'
@@ -24,5 +23,4 @@ pipeline {
     }
 }
 
-=======
->>>>>>> 738cdeb9a88fe7e900a0ed319010cbba6759890a
+
